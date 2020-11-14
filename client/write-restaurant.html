@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Write Restaurant </title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src= "./restaurant.js"></script>
+    
+    
+</head>
+
+	<body>
+        <header><h1>Enter restaurant type Data Into restaurant</h1></header>
+<main>
+    <section>
+        <form>
+            <div>
+                <label for="restaurantName">Restaurant Name</label>
+                <input type="text" id="restaurantName" name="restaurantName" size="30">
+            </div>
+            <div>
+                <label for="foodType">Food Type</label>
+                <input type="text" id="foodType" name="foodType" size="30">
+            </div>
+            <div>
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" size="30">
+            </div>
+            <div>
+                <label for="criticRating">Critic Rating: 1 to 5 stars</label>
+                <input type="range" id="criticRating" name="criticRating" size="5">
+            </div>
+            <div>
+                <label for="patronRating">Patron Rating: 1 to 5 stars</label>
+                <input type="range" id="patronRating" name="patronRating" size="5">
+            </div>
+            
+            <div id="save_button">
+                <button id="data-submit">Submit</button>
+            </div>
+            
+        
+        
+        </form>
+    
+    </section>    
+        
+        </main>
+        <script>activateSubmitButton();</script>
+</body>
+</html>
