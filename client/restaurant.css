@@ -1,0 +1,145 @@
+header, main, nav{display: block;}
+body{
+    background-color: #6f0d0d;
+    font-family: cursive;
+}
+#router_button {
+	text-align: center;
+    background-color: #6f0d0d;
+    color: #ffebaa;
+}
+
+#write-router {
+    text-decoration: none;
+	background-color: #ffebaa;
+    color: #6f0d0d;
+    text-align: center;
+}
+#write-router a:link{
+    list-style-type: none;
+    color: yellow;
+}
+#write-router a:hover{
+    color: #ffce44;
+}
+#write-router a:visited{
+   color: #ca061f;
+}
+
+#home-router {
+    text-decoration: none;
+	background-color: #ffebaa;
+    color: #6f0d0d;
+    text-align: center;
+}
+#home-router a:link{
+    list-style-type: none;
+    color: yellow;
+}
+#home-router a:hover{
+    color: #ffce44;
+}
+#home-router a:visited{
+   color: #ca061f;
+}
+#browse-router {
+    text-decoration: none;
+	background-color: #ffebaa;
+    color: #6f0d0d;
+    text-align: center;
+}
+#browse-router a:link{
+    list-style-type: none;
+    color: yellow;
+}
+#browse-router a:hover{
+    color: #ffce44;
+}
+#browse-router a:visited{
+   color: #ca061f;
+}
+#form {
+	background-color: #ffebaa;
+    color: #6f0d0d;
+    text-align: center;
+    width: 500px;
+    height: 150px;
+    padding: 10px;
+    position: fixed;
+    margin-top: 10px;
+    margin-left: 500px;
+}
+
+#restaurantTable{
+    margin: auto;
+    width: auto;
+
+}
+tr,td, th{
+    background-color: #ffebaa;
+    color: #6f0d0d;
+}
+
+header{
+    color: #6f0d0d;
+    background-color: #ffebaa;
+    background-image: url(restaurantsign1.jpg);
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 50px;
+    background-position: left;
+    font-size: 2em;
+}
+h1{
+    margin-top: 0px;
+    font-family: cursive;
+}
+.container{
+	background-color: #ffebaa;
+    padding-top: 5px;
+    padding-bottom: 230px;
+    width: 250px;
+    height: 250px;
+    float: left;
+}
+.container2{
+	background-color: #ffebaa;
+    padding-top: 5px;
+    padding-bottom: 230px;
+    width: 250px;
+    height: 250px;
+    float: right;
+}
+#restaurantPic {
+	position: fixed;
+    margin-top: 10px;
+    margin-left: 500px;
+}
+#pizza{
+	float: left;
+    padding-left: 45px;
+}
+#nachos{
+	float: left;
+    padding-left: 5px;
+}
+#burger{
+	float: left;
+    padding-left: 45px;
+}
+#german{
+	float: left;
+    padding-left: 45px;
+}
+#chinese{
+	float: right;
+    padding-right: 45px;   
+}
+#fries{
+	float: right;
+    padding-right: 45px; 
+}
+#japanese{
+	float: right;
+    padding-right: 25px; 
+}

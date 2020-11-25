@@ -2,30 +2,69 @@
 <html lang="en">
 <head>
 	<title> Browse Restaurant </title>
-    
+    <link rel="stylesheet" type="text/css" href="restaurant.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src= "./restaurant.js"></script>
+    <script src= "/client/config.js"></script>
+    <script src= "/client/browse-restaurant.js" async></script>
+    <link rel="icon" href="icon.ico" type="image/x-icon">
     
 </head>
 
 	<body>
-        <header><h1>Restaurant</h1></header>
 
-        <table>
+        <header>List of Restaurants Reviewed</header>
+
+        
+<div id="router_button">
+    <a href="/client/write-restaurant.html" id="write-router">Add Restaurant</a>       
+</div>
+<div id="router_button">
+    <a href="/client/home.html" id="home-router">Home</a>       
+</div>
+<div class="container">
+<div id="pizza">
+    <img  src="pizza.jpg">
+</div>
+<div id="nachos">
+    <img  src="nachos.jpg">
+</div>
+<div id="burger">
+    <img  src="burger.jpg">
+</div>
+<div id="german">
+    <img  src="german.jpg">
+</div> 
+ </div>
+    
+<div class="container2">
+<div id="japanese">
+    <img  src="japanese.jpg">
+</div>
+<div id="chinese">
+    <img  src="chinese.png">
+</div>
+<div id="fries">
+    <img src="fries.jpg">
+</div>
+</div>
+        <table id="restaurantTable">
             <thead>
+                <tr>
                 <th>ID</th>
                 <th>Restaurant Name</th>
                 <th>Food Type</th>
                 <th>Location</th>
                 <th>Critic Rating</th>
                 <th>Patron Rating</th>
+                <th></th>
+                </tr>
             </thead>
             
-            <tbody id='restaurantTable'></tbody>
-        
+            <tbody id='restaurantTable1'></tbody>
+           
         </table>
-        <script>
-                getRestaurantData();
-        </script>
+
+            
+
 </body>
 </html>
