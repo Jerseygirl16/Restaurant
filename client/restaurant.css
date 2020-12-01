@@ -70,7 +70,7 @@ body{
     margin-left: 500px;
 }
 
-#restaurantTable{
+#restaurantTable1{
     margin: auto;
     width: auto;
 
@@ -83,7 +83,7 @@ tr,td, th{
 header{
     color: #6f0d0d;
     background-color: #ffebaa;
-    background-image: url(restaurantsign1.jpg);
+    background-image: url(/client/images/restaurantsign1.jpg);
     background-repeat: no-repeat;
     text-align: center;
     padding: 50px;

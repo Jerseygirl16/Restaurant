@@ -43,18 +43,16 @@ app.get('/read-record', function(req, res){
 app.delete('/delete-record', function(req, res){
     var ID = req.body.ID;
     
-   fs.readFile(outputFile, "uft8", function(err, data){ 
+   fs.readFile(outputFile, "utf8", function(err, data){ 
     if(err){
            res.send(err);
        } 
         else{
             data = "[" + data + "]";
-            console.log(data);
-            res.send(data);
             
             var parsedData = JSON.parse(data);
             for(var i=0; i < parsedData.length; i++){
-                if(id === parsedData[i].ID){
+                if(ID === parsedData[i].ID){
                     parsedData.splice(i,1);
                     break;
                 }
