@@ -3,22 +3,24 @@
 <head>
 	<title> Write Restaurant </title>
     <link rel="stylesheet" type="text/css" href="/client/restaurant.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src= "/client/config.js" async></script>
-    <script src= "/client/write-restaurant.js" async></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src= "/client/config.js"></script>
+    <script src= "/client/write-restaurant.js"></script>
     <link rel="icon" href="/client/images/icon.ico" type="image/x-icon">
     
     
 </head>
 
-	<body>
+	<body data-ng-app="addRestaurantApp" data-ng-controller="addRestaurantCtrl">
         <div id="wrapper">
         <header>Restaurants Reviews</header>
 
     
 <div id="router_button">
-    <a href="/client/browse-restaurant.html" id="browse-router">Browse Restaurant</a>         
+    <a href="/client/browse-restaurant.html" id="browse-router">Browse Restaurant</a>   
 </div>
+<div id="router_button">
+    <a href="/client/view-restaurants.html" id="view-router">View Restaurants</a></div>
 <div id="router_button">
     <a href="/client/home.html" id="home-router">Home</a>       
 </div>
@@ -54,30 +56,30 @@
         <form id="form">
             <div>
                 <label for="restaurantName">Restaurant Name</label>
-                <input type="text" id="restaurantName" name="restaurantName" size="30">
+                <input type="text" id="restaurantName" name="restaurantName" size="30" data-ng-model="restaurantName">
             </div>
             <div>
                 <label for="foodType">Food Type</label>
-                <input type="text" id="foodType" name="foodType" size="30">
+                <input type="text" id="foodType" name="foodType" size="30" data-ng-model="foodType">
             </div>
             <div>
                 <label for="location">Location</label>
-                <input type="text" id="location" name="location" size="30">
+                <input type="text" id="location" name="location" size="30" data-ng-model="location">
             </div>
             <div>
                 <label for="criticRating">Critic Rating: 1 to 5 stars</label>
-                <input type="range" id="criticRating" name="criticRating" size="5">
+                <input type="range" id="criticRating" name="criticRating" size="5" data-ng-model="criticRating">
             </div>
             <div>
                 <label for="patronRating">Patron Rating: 1 to 5 stars</label>
-                <input type="range" id="patronRating" name="patronRating" size="5">
+                <input type="range" id="patronRating" name="patronRating" size="5" data-ng-model="patronRating">
             </div>
             
-            <div id="save_button">
-                <button id="data-submit">Submit</button>
+            <div>
+                <button id="submit" data-ng-click="dataSubmit()">Submit</button>
             </div>
             
-        
+        <div>{{addResults}}</div>
         
         </form>
     

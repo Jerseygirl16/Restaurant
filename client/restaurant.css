@@ -13,7 +13,7 @@ body{
     text-decoration: none;
 	background-color: #ffebaa;
     color: #6f0d0d;
-    text-align: center;
+    text-align: left;
 }
 #write-router a:link{
     list-style-type: none;
@@ -26,11 +26,12 @@ body{
    color: #ca061f;
 }
 
+
 #home-router {
     text-decoration: none;
 	background-color: #ffebaa;
     color: #6f0d0d;
-    text-align: center;
+    text-align: right;
 }
 #home-router a:link{
     list-style-type: none;
@@ -58,18 +59,46 @@ body{
 #browse-router a:visited{
    color: #ca061f;
 }
+
+#view-router {
+    text-decoration: none;
+	background-color: #ffebaa;
+    color: #6f0d0d;
+    text-align: center;
+}
+#view-router a:link{
+    list-style-type: none;
+    color: yellow;
+}
+#view-router a:hover{
+    color: #ffce44;
+}
+#view-router a:visited{
+   color: #ca061f;
+}
 #form {
 	background-color: #ffebaa;
     color: #6f0d0d;
     text-align: center;
     width: 500px;
-    height: 150px;
+    height: 170px;
     padding: 10px;
     position: fixed;
     margin-top: 10px;
     margin-left: 500px;
 }
-
+.container3 {
+	background-color: #ffebaa;
+    color: #6f0d0d;
+    text-align: center;
+    font-size: 20px;
+    width: 500px;
+    height: 250px;
+    padding: 10px;
+    position: fixed;
+    margin-top: 10px;
+    margin-left: 500px;
+}
 #restaurantTable1{
     margin: auto;
     width: auto;

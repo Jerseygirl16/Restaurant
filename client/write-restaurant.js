@@ -1,26 +1,33 @@
+var app = angular.module("addRestaurantApp", []);
+
 //Create a jQuery listener that waits for the user to enter submit
-    $('#data-submit').click(function(){
-        var restaurantName = $('#restaurantName').val();
-        var foodType = $('#foodType').val();
-        var location = $('#location').val();
-        var criticRating = $('#criticRating').val();
-        var patronRating = $('#patronRating').val();
-        
-        var d = new Date();
-        var ID = "res" + d.getTime();
-        
-        var jsonString = JSON.stringify({ID: ID, restaurantName: restaurantName, foodType: foodType, location: location, criticRating: criticRating, patronRating: patronRating});
-                                        
-                                        
-             $.ajax({
-                url: restaurantURL + "/write-record", 
-                type: "post",
-                data: {data: jsonString},
-                success: function(response){
-                        alert(response);
-                    }, 
-                error: function(err){
-                            alert(err);
-                    }
-            });                         
-    });
+app.controller("addRestaurantCtrl", function($scope, $http){
+    $scope.dataSubmit = function(){
+        $http({
+            method: "post",
+            url: "http://localhost:5000/write-record",
+            data: { 
+                "restaurantName": $scope.restaurantName,
+                "foodType": $scope.foodType,
+                "location": $scope.location,
+                "criticRating": $scope.criticRating,
+                "patronRating": $scope.patronRating
+                  }
+            
+        }).then(function(response){
+            if(response.data === "SUCCESS"){
+                $scope.restaurantName = "";
+                $scope.foodType = "";
+                $scope.location = "";
+                $scope.criticRating = "";
+                $scope.patronRating = "";
+                $scope.addResults = "Restaurant is Added!";
+            }
+            else{
+                $scope.addResults = response.data;
+            }
+            }, function(response){
+                console.log(response);
+        });
+    };
+});

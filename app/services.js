@@ -8,9 +8,23 @@ var outputFile = './files/restaurant.txt';
 //Service Listeners  
 var service = function(app){
 app.post('/write-record', function(req, res){
-     var data =  req.body.data;
+     var d = new Date();
+    var ID = "res" + d.getTime();
      
-        console.log(data);
+    console.log(req.body.restaurantName);
+    var data = {
+        ID: ID,
+        restaurantName: req.body.restaurantName,
+        foodType: req.body.foodType,
+        location: req.body.location,
+        criticRating: req.body.criticRating,
+        patronRating: req.body.patronRating
+    };
+    
+    
+    data = JSON.stringify(data);
+    
+        //console.log(data);
          
      if(fs.existsSync(outputFile)){
         data = "," + data;

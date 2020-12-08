@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> View Restaurants </title>
+     <link rel="stylesheet" type="text/css" href="/client/restaurant.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src= "/client/config.js"></script>
+    <script src="/client/view-restaurants.js"></script>
+    <link rel="icon" href="/client/images/icon.ico" type="image/x-icon">
+</head>
+    <header>View Restaurants</header>
+
+<body data-ng-app="viewRestaurantsApp" data-ng-controller="viewRestaurantsCtrl">
+    
+<div id="router_button">
+    <a href="/client/write-restaurant.html" id="write-router">Add Restaurant</a>       
+</div>
+<div id="router_button">
+    <a href="/client/browse-restaurant.html" id="browse-router">Browse Restaurant</a>   
+</div>
+<div id="router_button">
+    <a href="/client/home.html" id="home-router">Home</a>       
+</div>
+            
+<div class="container">
+<div id="pizza">
+    <img  src="/client/images/pizza.jpg">
+</div>
+<div id="nachos">
+    <img  src="/client/images/nachos.jpg">
+</div>
+<div id="burger">
+    <img  src="/client/images/burger.jpg">
+</div>
+<div id="german">
+    <img  src="/client/images/german.jpg">
+</div> 
+ </div>
+    
+<div class="container2">
+<div id="japanese">
+    <img  src="/client/images/japanese.jpg">
+</div>
+<div id="chinese">
+    <img  src="/client/images/chinese.png">
+</div>
+<div id="fries">
+    <img src="/client/images/fries.jpg">
+</div>
+</div>
+    
+    <div class="container3">
+    <div>
+         <div>
+            <label for="ID">ID:</label>
+            <label id="ID">{{obj.ID}}</label>
+        </div>
+        <div>
+            <label for="name">Restaurant Name:</label>
+            <label id="name">{{obj.restaurantName}}</label>
+        </div>
+         <div>
+            <label for="type">Food Type:</label>
+            <label id="type">{{obj.foodType}}</label>
+        </div>
+         <div>
+            <label for="location">Location:</label>
+            <label id="location">{{obj.location}}</label>
+        </div>
+         <div>
+            <label for="critic-rating">Critic Rating:</label>
+            <label id="critic rating">{{obj.criticRating}}</label>
+        </div>
+         <div>
+            <label for="patron-rating">Patron Rating:</label>
+            <label id="patron rating">{{obj.patronRating}}</label>
+        </div>
+    
+    </div>
+    <br>
+    <div>
+        <div>
+            <button id="previous" data-ng-click="changeRecord(-1)" data-ng-hide="hidePrev">&lt; Previous</button> 
+        </div>
+        <div>
+            <button id="next" data-ng-click="changeRecord(1)" data-ng-hide="hideNext">Next &gt;</button> 
+        </div>
+    </div>
+    </div>
+</body>
+</html>
