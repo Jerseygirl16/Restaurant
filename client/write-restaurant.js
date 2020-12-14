@@ -5,7 +5,7 @@ app.controller("addRestaurantCtrl", function($scope, $http){
     $scope.dataSubmit = function(){
         $http({
             method: "post",
-            url: "http://localhost:5000/write-record",
+            url: restaurantURL + '/write-record',
             data: { 
                 "restaurantName": $scope.restaurantName,
                 "foodType": $scope.foodType,
@@ -15,7 +15,7 @@ app.controller("addRestaurantCtrl", function($scope, $http){
                   }
             
         }).then(function(response){
-            if(response.data === "SUCCESS"){
+            if(response.data.msg === "SUCCESS"){
                 $scope.restaurantName = "";
                 $scope.foodType = "";
                 $scope.location = "";
@@ -24,7 +24,7 @@ app.controller("addRestaurantCtrl", function($scope, $http){
                 $scope.addResults = "Restaurant is Added!";
             }
             else{
-                $scope.addResults = response.data;
+                $scope.addResults = response.data.msg;
             }
             }, function(response){
                 console.log(response);

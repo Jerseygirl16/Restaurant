@@ -3,13 +3,13 @@ function createRestaurantTable(restaurantData){
     
     for(var i=0; i<restaurantData.length; i++){
         tableHTML += "<tr>";
-            tableHTML+= "<td>" + restaurantData[i].ID + "</td>";
+            tableHTML+= "<td>" + restaurantData[i]._id + "</td>";
             tableHTML+= "<td>" + restaurantData[i].restaurantName + "</td>";
             tableHTML+= "<td>" + restaurantData[i].foodType + "</td>";
             tableHTML+= "<td>" + restaurantData[i].location + "</td>";
             tableHTML+= "<td>" + restaurantData[i].criticRating + "</td>";
             tableHTML+= "<td>" + restaurantData[i].patronRating + "</td>";
-            tableHTML+= "<td>" + "<button class='deleteButton' " + "data-id='" + restaurantData[i].ID + "'>DELETE!</button>" + "</td>";
+            tableHTML+= "<td>" + "<button class='deleteButton' " + "data-id='" + restaurantData[i]._id + "'>DELETE!</button>" + "</td>";
         tableHTML+= "</tr>";
     }
     
@@ -26,7 +26,7 @@ function getRestaurantData(){
         type: "get",
         success: function(response){
             var data = JSON.parse(response);
-            createRestaurantTable(data);
+            createRestaurantTable(data.resName);
         },
         error: function(err){
             alert(err);

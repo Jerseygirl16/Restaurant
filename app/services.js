@@ -1,19 +1,15 @@
-const fs = require('fs');
+const MongoClient = require("mongodb").MongoClient;
+const ObjectId = require("mongodb").ObjectId;
 
+const dbURL = process.env.DB_URI || "mongodb://localhost";
 
-
-var outputFile = './files/restaurant.txt';
 
 
 //Service Listeners  
-var service = function(app){
+var services = function(app){
 app.post('/write-record', function(req, res){
-     var d = new Date();
-    var ID = "res" + d.getTime();
-     
-    console.log(req.body.restaurantName);
+  
     var data = {
-        ID: ID,
         restaurantName: req.body.restaurantName,
         foodType: req.body.foodType,
         location: req.body.location,
@@ -21,70 +17,76 @@ app.post('/write-record', function(req, res){
         patronRating: req.body.patronRating
     };
     
-    
-    data = JSON.stringify(data);
-    
-        //console.log(data);
-         
-     if(fs.existsSync(outputFile)){
-        data = "," + data;
-};
-    fs.appendFile(outputFile, data, function(err){
+    MongoClient.connect(dbURL, {useUnifiedTopology: true}, function(err, client){
         if(err){
-            res.send(err);
+            return res.status(200).send(JSON.stringify({msg: "Error:" + err}));
         }
         else{
-            res.send("SUCCESS");
-        }
-    });
-});
-
-
-app.get('/read-record', function(req, res){
-    fs.readFile(outputFile, "utf8", function(err, data){
-       if(err){
-           res.send(err);
-       } 
-        else{
-            data = "[" + data + "]";
-            console.log(data);
-            res.send(data);
-        }
-    });
-});
-
-
-app.delete('/delete-record', function(req, res){
-    var ID = req.body.ID;
-    
-   fs.readFile(outputFile, "utf8", function(err, data){ 
-    if(err){
-           res.send(err);
-       } 
-        else{
-            data = "[" + data + "]";
+            var dbo = client.db("restaurant");
             
-            var parsedData = JSON.parse(data);
-            for(var i=0; i < parsedData.length; i++){
-                if(ID === parsedData[i].ID){
-                    parsedData.splice(i,1);
-                    break;
-                }
-            }
-            var dataString = JSON.stringify(parsedData); 
-            var remove = dataString.substring(1, dataString.length - 1);
-            fs.writeFile(outputFile, remove, function(err){
+            dbo.collection("resName").insertOne(data, function(err){
                 if(err){
-                    res.send(err);
+                    client.close();
+                    return res.status(200).send(JSON.stringify({msg: "Error:" + err}));
                 }
                 else{
-                    res.send("SUCCESS");
+                    client.close();
+                    return res.status(200).send(JSON.stringify({msg: "SUCCESS"}));
                 }
+            });
+        }
+    });
+    });
+
+app.get('/read-record', function(req, res){
+    MongoClient.connect(dbURL, {useUnifiedTopology: true}, function(err, client){
+        if(err){
+            return res.status(200).send(JSON.stringify({msg:"Error: " + err}));
+        }
+        else{
+            var dbo = client.db("restaurant");
+            
+            dbo.collection("resName").find().toArray(function(err, data){
+              if(err){
+                  return res.status(200).send(JSON.stringify({msg:"Error: " + err}));
+              }
+                else{
+                  client.close();
+                  return res.status(200).send(JSON.stringify({msg:"SUCCESS", resName: data}));
+              }  
             });
         }
     });
 });
 
+app.delete('/delete-record', function(req, res){
+    var resID = req.query.resId;
+    var s_id = new ObjectId(resId);
+    var search = {_id: s_id};
+    
+    
+    MongoClient.connect(dbURL, {useUnifiedTopology: true}, function(err, client){
+        if(err){
+            return res.status(200).send(JSON.stringify({msg:"Error: " + err}));
+        }
+        else{
+            var dbo = client.db("restaurant");
+            
+            dbo.collection("resName").deleteOne(search, function(err, data){
+                if(err){
+                    return res.status(200).send(JSON.stringify({msg:"Error: " + err}));
+                }
+                else{
+                    client.close();
+                    return res.status(200).send(JSON.stringify({msg:"SUCCESS"}));
+                }
+            });
+        }
+    });
+    
+  
+});
 }
 
-module.exports = service;
+
+module.exports = services;

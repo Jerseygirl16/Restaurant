@@ -9,9 +9,9 @@ app.controller("viewRestaurantsCtrl", function($scope, $http){
     $scope.get_restaurants = function(){
         $http({
            method: "get",
-            url: "http://localhost:5000/read-record"
+            url: restaurantURL + '/read-record'
         }).then(function(response){
-                restaurants = response.data;
+                restaurants = response.data.resName;
                 $scope.obj = restaurants[activeRestaurants];
                 $scope.showHide();
         }, function(response){
