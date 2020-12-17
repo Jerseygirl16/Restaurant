@@ -76,16 +76,73 @@ body{
 #view-router a:visited{
    color: #ca061f;
 }
+#sortTable {
+	background-color: #ffebaa;
+    color: #6f0d0d;
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    padding: 10px;
+    position: fixed;
+    margin-top: 10px;
+    margin-left: 700px;
+    margin-bottom: 10px;
+}
+
+#hiddenForm {
+	background-color: #ffebaa;
+    color: #6f0d0d;
+    text-align: center;
+    width: 500px;
+    height: 200px;
+    padding: 10px;
+    position: fixed;
+    margin-top: 10px;
+    margin-left: 500px;
+    font-size: 20px;
+}
+
+#previous {
+	background-color: #ffebaa;
+    color: #6f0d0d;
+}
+#next {
+	background-color: #ffebaa;
+    color: #6f0d0d;
+}
+#delete {
+	background-color: #ffebaa;
+    color: #6f0d0d;
+}
+#edit {
+	background-color: #ffebaa;
+    color: #6f0d0d;
+}
+#update {
+	background-color: #ffebaa;
+    color: #6f0d0d;
+}
+#cancel {
+	background-color: #ffebaa;
+    color: #6f0d0d;
+}
+#submit {
+	background-color: #ffebaa;
+    color: #6f0d0d;
+}
+
+
 #form {
 	background-color: #ffebaa;
     color: #6f0d0d;
     text-align: center;
     width: 500px;
-    height: 170px;
+    height: 200px;
     padding: 10px;
     position: fixed;
     margin-top: 10px;
     margin-left: 500px;
+    font-size: 20px;
 }
 .container3 {
 	background-color: #ffebaa;

@@ -19,8 +19,8 @@ app.controller("addRestaurantCtrl", function($scope, $http){
                 $scope.restaurantName = "";
                 $scope.foodType = "";
                 $scope.location = "";
-                $scope.criticRating = "";
-                $scope.patronRating = "";
+                $scope.critic = "";
+                $scope.patron = "";
                 $scope.addResults = "Restaurant is Added!";
             }
             else{

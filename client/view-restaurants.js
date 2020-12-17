@@ -11,9 +11,14 @@ app.controller("viewRestaurantsCtrl", function($scope, $http){
            method: "get",
             url: restaurantURL + '/read-record'
         }).then(function(response){
+            if(response.data.msg === "SUCCESS"){
                 restaurants = response.data.resName;
                 $scope.obj = restaurants[activeRestaurants];
                 $scope.showHide();
+             }
+            else{
+                console.log(response.data.msg);
+            }
         }, function(response){
             console.log(response);
         });

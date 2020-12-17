@@ -130,7 +130,7 @@ tab.sort(getSortOrder("restaurantName"));
     */
 
 
-function getDisplayedLinks(){
+/*function getDisplayedLinks(){
     $.ajax({
         url:"http://localhost:5000/read-links",
         type: "get",
@@ -140,4 +140,4 @@ function getDisplayedLinks(){
             activateSubmitButton();
         }
     });
-}
+}*/

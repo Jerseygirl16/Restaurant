@@ -3,14 +3,14 @@
 <head>
 	<title> Browse Restaurant </title>
     <link rel="stylesheet" type="text/css" href="/client/restaurant.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src= "/client/config.js"></script>
     <script src= "/client/browse-restaurant.js"></script>
     <link rel="icon" href="/client/images/icon.ico" type="image/x-icon">
     
 </head>
 
-	<body>
+	<body data-ng-app="browseApp" data-ng-controller="browseCtrl" data-ng-init="hideForm=true">
 
         <header>List of Restaurants Reviewed</header>
   
@@ -49,24 +49,89 @@
     <img src="/client/images/fries.jpg">
 </div>
 </div>
+        
+<section data-ng-hide="hideTable">
+        <div id="sortTable">
+             <label for="groupBy">Food Type: </label>
+             <select id="groupBy"
+                data-ng-model="selectedType"
+                data-ng-options="type.display for type in types"
+                data-ng-change="redrawTable()">
+            </select>
+    </div>
+         <br><br><br><br>
+  
+      <div>  
+    
         <table id="restaurantTable1">
             <thead>
                 <tr>
-                <th>ID</th>
-                <th>Restaurant Name</th>
-                <th>Food Type</th>
-                <th>Location</th>
-                <th>Critic Rating</th>
-                <th>Patron Rating</th>
-                <th></th>
+                    <th>Restaurant Name</th>
+                    <th>Food Type</th>
+                    <th>Location</th>
+                    <th>Critic Rating</th>
+                    <th>Patron Rating</th>
+                    <td></td>
+                    <td></td>
                 </tr>
             </thead>
-            
+                <tr data-ng-repeat="obj in rest">
+                    <td>{{obj.restaurantName}}</td>
+                    <td>{{obj.foodType}}</td>
+                    <td>{{obj.location}}</td>
+                    <td>{{obj.criticRating}}</td>
+                    <td>{{obj.patronRating}}</td>
+                     <td>
+                    <button id="delete" data-ng-click="deleteRes(obj['_id'])">DELETE!</button>
+                </td>
+                <td>
+                    <button id="edit" data-ng-click="editRes($index)">EDIT!</button>
+                </td>
+                </tr>            
             <tbody id='restaurantTable'></tbody>
            
         </table>
+    </div>             
+</section>
+    
+<section data-ng-hide="hideForm">
+    <label data-ng-model="resID" hidden></label>
+        <div id="hiddenForm">
+        <div>
+            <label for="restaurantName">Restaurant Name:</label>
+            <input id="restaurantName" data-ng-model="restaurantName">
+        </div>
+        <div>
+            <label for="foodType">Food Type:</label>
+            <input id="foodType" data-ng-model="foodType">
+        </div>
+        <div>
+            <label for="location">location:</label>
+            <input id="location" data-ng-model="location">
+        </div>
+        <div>
+            <label for="criticRating">Critic Rating:</label>
+            <input id="criticRating" data-ng-model="critic">
+        </div>
+        <div>
+            <label for="patronRating">Patron Rating:</label>
+            <input id="patronRating" data-ng-model="patron">
+        </div>
+        <div>
+        <div>
+            <button id="update" data-ng-click="updateRes()">Update!</button>
+        </div>
+        <div>
+            <button id="cancel" data-ng-click="closeForm()">Cancel!</button>
+        </div>
+    
+    </div>
+    </div>
+        
+        
+</section>
 
-            
 
+        
 </body>
 </html>
