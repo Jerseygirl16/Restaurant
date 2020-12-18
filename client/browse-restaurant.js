@@ -84,7 +84,7 @@ app.controller('browseCtrl', function($scope, $http){
         $scope.restaurantName = $scope.rest[resNumber].restaurantName;
         $scope.foodType = $scope.rest[resNumber].foodType;
         $scope.location = $scope.rest[resNumber].location;
-        $scope.critic = $scope.rest[resNumber].crtiticRating;
+        $scope.critic = $scope.rest[resNumber].criticRating;
         $scope.patron = $scope.rest[resNumber].patronRating;
         $scope.resID = $scope.rest[resNumber]['_id'];
         
